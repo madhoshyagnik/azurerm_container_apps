@@ -1,0 +1,10 @@
+  name = "furniture_rg"
+
+name                = "furnitureRegistry"
+
+  azurerm_log_analytics_workspace_name              = "furniture-log-workspace"
+  azurerm_log_analytics_workspace_sku               = "PerGB2018"
+  azurerm_log_analytics_workspace_retention_in_days = 30
+
+
+    azurerm_container_app_environment_name = "furniture-app-environment"

@@ -3,11 +3,11 @@ provider "azurerm" {
 }
 
 data "azurerm_resource_group" "furniture_rg" {
-  name = "furniture_rg"
+  name = var.azurerm_resource_group_name
 }
 
 data "azurerm_container_registry" "furnitureRegistry" {
-  name                = "furnitureRegistry"
+  name                = var.azurerm_container_registry_name
   resource_group_name = data.azurerm_resource_group.furniture_rg.name
 }
 
@@ -15,14 +15,14 @@ module "azurerm_log_analytics_workspace" {
   source                                            = "./modules/azurerm_log_analytics_workspace"
   azurerm_resource_group_name                       = data.azurerm_resource_group.furniture_rg.name
   azurerm_resource_group_location                   = data.azurerm_resource_group.furniture_rg.location
-  azurerm_log_analytics_workspace_name              = "furniture-log-workspace"
-  azurerm_log_analytics_workspace_sku               = "PerGB2018"
-  azurerm_log_analytics_workspace_retention_in_days = 30
+  azurerm_log_analytics_workspace_name              = var.azurerm_log_analytics_workspace_name
+  azurerm_log_analytics_workspace_sku               = var.azurerm_log_analytics_workspace_sku
+  azurerm_log_analytics_workspace_retention_in_days = var.azurerm_log_analytics_workspace_retention_in_days
 }
 
 module "azurerm_container_app_environment" {
   source = "./modules/azurerm_container_app_environment"
-  azurerm_container_app_environment_name = "furniture-app-environment"
+  azurerm_container_app_environment_name = var.azurerm_container_app_environment_name
   azurerm_resource_group_name = data.azurerm_resource_group.furniture_rg.name
   azurerm_resource_group_location = data.azurerm_resource_group.furniture_rg.location
   azurerm_log_analytics_workspace_id = module.azurerm_log_analytics_workspace.azurerm_log_analytics_workspace_id
