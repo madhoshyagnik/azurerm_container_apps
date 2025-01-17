@@ -1,0 +1,4 @@
+    name = "furniture-log-workspace"
+
+    sku = "PerGB2018"
+    retention_in_days = 30
