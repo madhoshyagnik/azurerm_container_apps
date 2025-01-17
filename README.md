@@ -27,7 +27,7 @@ terraform {
 
 #### After this is done, you'll need to set up below environment variables on https://app.terraform.io/. This can be done in two ways. If you add these variables on a workspace level (for each of your workspaces, which you eventually will have more than one), you'll need to change some of the variables almost every other day, as some variables do change almost everyday in Azure, like *ARM_CLIENT_SECRET*. 
 
-#### To avoid having to change variables for individual workspaces, just add a variable set on a project level, it will be applied to all the workspaces, which is much easier and saves time.
+#### To avoid having to change variables for individual workspaces, just add a variable set on the project level, it will be applied to all the workspaces, which is much easier and saves time. Also note that this will override any variables declared on workspace level. Skipping this step will result in a vague *az executable not found*.
 
 ```makefile
 
@@ -35,7 +35,6 @@ ARM_CLIENT_ID
 ARM_CLIENT_SECRET
 ARM_SUBSCRIPTION_ID
 ARM_TENANT_ID
-
 
 ```
 
