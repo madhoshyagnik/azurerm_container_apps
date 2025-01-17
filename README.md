@@ -27,7 +27,11 @@ terraform {
 
 #### After this is done, you'll need to set up below environment variables on https://app.terraform.io/. This can be done in two ways. If you add these variables on a workspace level (for each of your workspaces, which you eventually will have more than one), you'll need to change some of the variables almost every other day, as some variables do change almost everyday in Azure, like *ARM_CLIENT_SECRET*. 
 
-#### To avoid having to change variables for individual workspaces, just add a variable set on the project level, it will be applied to all the workspaces, which is much easier and saves time. Also note that this will override any variables declared on workspace level. Skipping this step will result in a vague *az executable not found*.
+#### To avoid having to change variables for individual workspaces, just add a variable set on the project level, it will be applied to all the workspaces, which is much easier and saves time. Also note that this will overwrite any variables declared on workspace level. Skipping this step will result in a vague *az executable not found*.
+
+![alt text](image.png)
+
+![alt text](image-1.png)
 
 ```makefile
 
@@ -71,3 +75,7 @@ docker push <name_of_your_image_repository>.azurecr.io/<any_image_name>
 ### To create an Azure Container Apps cluster, go to the azurerm_container_apps directory and change the variables  inside terraform.tfvars. For this one you'll also have to change the azure_container_apps resource in the main.tf, for now. I will modularize and variablize that as well.
 
 # When destroying the infrastructure, destroy the container app first, then delete container registry to avoid issues and having to manually delete the resources on the Azure UI.
+
+#### Optional: Stress your application using a simple linux tool like *siege*
+
+![alt text](image-2.png)
