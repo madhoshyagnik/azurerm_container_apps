@@ -1,0 +1,6 @@
+  azurerm_resource_group_name     = "furniture_rg"
+  azurerm_resource_group_location = "Central India"
+
+  azurerm_container_registry_name          = "furnitureRegistry"
+  azurerm_container_registry_sku           = "Basic"
+  azurerm_container_registry_admin_enabled = true
