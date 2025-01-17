@@ -70,3 +70,4 @@ docker push <name_of_your_image_repository>.azurecr.io/<any_image_name>
 
 ### To create an Azure Container Apps cluster, go to the azurerm_container_apps directory and change the variables  inside terraform.tfvars. For this one you'll also have to change the azure_container_apps resource in the main.tf, for now. I will modularize and variablize that as well.
 
+# When destroying the infrastructure, destroy the container app first, then delete container registry to avoid issues and having to manually delete the resources on the Azure UI.
