@@ -1,0 +1,5 @@
+name                = "furnitureRegistry"
+
+sku                 = "Basic"
+
+admin_enabled       = true
